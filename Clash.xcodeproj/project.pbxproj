@@ -1,0 +1,759 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05112C007257F045189E1559 /* ClashTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2A69716E1BE9D83E495E41E5 /* ClashTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16A0372542BD5653C95E9B69 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5AB07D497FFB634DFBFDFA /* Profile.swift */; };
+		2006E9005A01C903B1F46468 /* ClashCoreKit-Bridging-Header.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FE7542F2BDEE0118E8AD20D /* ClashCoreKit-Bridging-Header.h */; };
+		31C077C3092D6BF5A76292BE /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB92264DE1B3E1D0C86FE97 /* PacketTunnelProvider.swift */; };
+		33B8F1F47C2B614E1B220B66 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C4DB974885ED48FD47EC8 /* Models.swift */; };
+		438C9E0CA212F5F355AAD281 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB879C9905C8619C2E9D3B90 /* TunnelManager.swift */; };
+		4A208447F091751A38DBF595 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D933B05A428B8FEBD93C8 /* Shared.swift */; };
+		528CFBDFFB767BADF0ECF0CB /* ClashCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BC4B2AAC3DAFB761F2B03 /* ClashCore.xcframework */; };
+		62C04087353F0C0998502A80 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1C1970B90F1B5D102F4F /* AppModel.swift */; };
+		64032B36A58ED19D585C3532 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F05D66E42650E3AB803CB /* LogsView.swift */; };
+		6A5956D25EBD6EF2F90397F4 /* ClashCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155BF0E4BE057FDA41F0DEA /* ClashCore.swift */; };
+		735B95CA896FA8FA8D34F0C2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214C295BC8CCF401D776D01 /* RootView.swift */; };
+		78CF925535251182B5F8B7A1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE438E7BB91D98EED1CA61E /* DashboardView.swift */; };
+		7C81B21D56433AD3DF45F87A /* ProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB67A1A2EC9E1C78DEC1D99 /* ProfileStore.swift */; };
+		84B50E5DDFEF4B5DF512A6BB /* libClashCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BC02BC1B481AF854AAF5A0 /* libClashCoreKit.a */; };
+		859A4BFBFEBD6D32DE43EA2E /* SocketProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF701B4EDE129EBC7C5F066 /* SocketProtector.swift */; };
+		A4C31C3C08B313373A52DA45 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99607CBE54538EF57A731AD7 /* SettingsView.swift */; };
+		A4ED894A6009E19A0A408628 /* ClashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1985975C04277FC79648D4 /* ClashApp.swift */; };
+		ABDA1B10ACFF1F815C6F4BCA /* ClashCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BC4B2AAC3DAFB761F2B03 /* ClashCore.xcframework */; };
+		B8719B169EA3D32D6A4BAD14 /* ProxiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6826F894A48A5364FB8E6 /* ProxiesView.swift */; };
+		B8B21FCE6CD50C9A6A373880 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ABBE8028C017DE26A7A2A6 /* ProfilesView.swift */; };
+		D6A3513AEE6CF0144C25FDB5 /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874BFC1D1F4611957663D4B /* Callbacks.swift */; };
+		D9947DC9120ADDE1B6FF29A5 /* libClashCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BC02BC1B481AF854AAF5A0 /* libClashCoreKit.a */; };
+		DBDB2F755C6F47DBE9B4295F /* FFI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD588043DEA5127492AE6E /* FFI.swift */; };
+		E088FA78E21DBBAFAEEEF3CA /* TunBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB739751C2E4F651C233AC76 /* TunBridge.swift */; };
+		EA78ADE317CC232DC05A8BCC /* ClashCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9BC4B2AAC3DAFB761F2B03 /* ClashCore.xcframework */; };
+		F55AB399A8D3A172C0D54AFE /* libClashCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 349C6A1280BA0F72FA17E5E7 /* libClashCore.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BCA30CED46A6FD4D40526A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DC58A8FDC8522965EF59F1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DA440B16F43FDB5A4206A31;
+			remoteInfo = ClashTunnel;
+		};
+		CB29B0441BFE289D8F420607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DC58A8FDC8522965EF59F1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D33C93AE86930BC8F687E4B;
+			remoteInfo = ClashCoreKit;
+		};
+		DE6ACE2D232F2DB3768735D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DC58A8FDC8522965EF59F1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D33C93AE86930BC8F687E4B;
+			remoteInfo = ClashCoreKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16C21B9BA226B58C0AF6D95F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				2006E9005A01C903B1F46468 /* ClashCoreKit-Bridging-Header.h in CopyFiles */,
+				F55AB399A8D3A172C0D54AFE /* libClashCore.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BB8A57D3666CDF35A71F7FB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				05112C007257F045189E1559 /* ClashTunnel.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0155BF0E4BE057FDA41F0DEA /* ClashCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashCore.swift; sourceTree = "<group>"; };
+		057C4DB974885ED48FD47EC8 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		0A1985975C04277FC79648D4 /* ClashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashApp.swift; sourceTree = "<group>"; };
+		0B5AB07D497FFB634DFBFDFA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		0DB67A1A2EC9E1C78DEC1D99 /* ProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStore.swift; sourceTree = "<group>"; };
+		2A69716E1BE9D83E495E41E5 /* ClashTunnel.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClashTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB92264DE1B3E1D0C86FE97 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		2FE7542F2BDEE0118E8AD20D /* ClashCoreKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClashCoreKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		349C6A1280BA0F72FA17E5E7 /* libClashCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libClashCore.h; sourceTree = "<group>"; };
+		4874BFC1D1F4611957663D4B /* Callbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
+		4A6C1C1970B90F1B5D102F4F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		4AF701B4EDE129EBC7C5F066 /* SocketProtector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketProtector.swift; sourceTree = "<group>"; };
+		4F2F05D66E42650E3AB803CB /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		52F6826F894A48A5364FB8E6 /* ProxiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxiesView.swift; sourceTree = "<group>"; };
+		6E9BC4B2AAC3DAFB761F2B03 /* ClashCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ClashCore.xcframework; path = build/ClashCore.xcframework; sourceTree = "<group>"; };
+		6F5D933B05A428B8FEBD93C8 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		72ABBE8028C017DE26A7A2A6 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
+		8214C295BC8CCF401D776D01 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		8ABD588043DEA5127492AE6E /* FFI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFI.swift; sourceTree = "<group>"; };
+		99607CBE54538EF57A731AD7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A7ACC6B17248FF738A52F5A5 /* Clash.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Clash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8BC02BC1B481AF854AAF5A0 /* libClashCoreKit.a */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = archive.ar; path = libClashCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B019133848EA8746B099F37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CAB8F6B35F96457192B20FF8 /* Clash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clash.entitlements; sourceTree = "<group>"; };
+		CCE438E7BB91D98EED1CA61E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DB879C9905C8619C2E9D3B90 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
+		EB739751C2E4F651C233AC76 /* TunBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunBridge.swift; sourceTree = "<group>"; };
+		F55A412C79A6BDFFC0BCD9F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FE7E4F4CDFF645C7633E0520 /* ClashTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashTunnel.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66C14AB99E74F2C6312BAE06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9947DC9120ADDE1B6FF29A5 /* libClashCoreKit.a in Frameworks */,
+				ABDA1B10ACFF1F815C6F4BCA /* ClashCore.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C737DC79F6F15D160331FB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B50E5DDFEF4B5DF512A6BB /* libClashCoreKit.a in Frameworks */,
+				EA78ADE317CC232DC05A8BCC /* ClashCore.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E55FEEFB5F9DA184098F884 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				528CFBDFFB767BADF0ECF0CB /* ClashCore.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AB18F51E9E0BC88C1A69F81 /* ClashCoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				21C303EC3DC50A6A9BD4FDC4 /* ffi */,
+				4874BFC1D1F4611957663D4B /* Callbacks.swift */,
+				0155BF0E4BE057FDA41F0DEA /* ClashCore.swift */,
+				2FE7542F2BDEE0118E8AD20D /* ClashCoreKit-Bridging-Header.h */,
+				8ABD588043DEA5127492AE6E /* FFI.swift */,
+				057C4DB974885ED48FD47EC8 /* Models.swift */,
+				6F5D933B05A428B8FEBD93C8 /* Shared.swift */,
+				4AF701B4EDE129EBC7C5F066 /* SocketProtector.swift */,
+				EB739751C2E4F651C233AC76 /* TunBridge.swift */,
+			);
+			path = ClashCoreKit;
+			sourceTree = "<group>";
+		};
+		21C303EC3DC50A6A9BD4FDC4 /* ffi */ = {
+			isa = PBXGroup;
+			children = (
+				349C6A1280BA0F72FA17E5E7 /* libClashCore.h */,
+			);
+			path = ffi;
+			sourceTree = "<group>";
+		};
+		459B6BED966C5915A861F599 /* Clash */ = {
+			isa = PBXGroup;
+			children = (
+				64276B3435A751FE3316A8DC /* Models */,
+				655A2448E8155091071AE94C /* Services */,
+				88D84A44C18D28A36606844C /* Views */,
+				4A6C1C1970B90F1B5D102F4F /* AppModel.swift */,
+				CAB8F6B35F96457192B20FF8 /* Clash.entitlements */,
+				0A1985975C04277FC79648D4 /* ClashApp.swift */,
+				F55A412C79A6BDFFC0BCD9F6 /* Info.plist */,
+			);
+			path = Clash;
+			sourceTree = "<group>";
+		};
+		4E9FAF85FBA4D5B731CA0D4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E9BC4B2AAC3DAFB761F2B03 /* ClashCore.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64276B3435A751FE3316A8DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B5AB07D497FFB634DFBFDFA /* Profile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		655A2448E8155091071AE94C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0DB67A1A2EC9E1C78DEC1D99 /* ProfileStore.swift */,
+				DB879C9905C8619C2E9D3B90 /* TunnelManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6A86154B571E7F62B3FE24FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7ACC6B17248FF738A52F5A5 /* Clash.app */,
+				2A69716E1BE9D83E495E41E5 /* ClashTunnel.appex */,
+				A8BC02BC1B481AF854AAF5A0 /* libClashCoreKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7060FA3973C20ECBE502CBCF /* ClashTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				FE7E4F4CDFF645C7633E0520 /* ClashTunnel.entitlements */,
+				B019133848EA8746B099F37C /* Info.plist */,
+				2BB92264DE1B3E1D0C86FE97 /* PacketTunnelProvider.swift */,
+			);
+			path = ClashTunnel;
+			sourceTree = "<group>";
+		};
+		88D84A44C18D28A36606844C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCE438E7BB91D98EED1CA61E /* DashboardView.swift */,
+				4F2F05D66E42650E3AB803CB /* LogsView.swift */,
+				72ABBE8028C017DE26A7A2A6 /* ProfilesView.swift */,
+				52F6826F894A48A5364FB8E6 /* ProxiesView.swift */,
+				8214C295BC8CCF401D776D01 /* RootView.swift */,
+				99607CBE54538EF57A731AD7 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D5F25C9591260CA824C93583 = {
+			isa = PBXGroup;
+			children = (
+				459B6BED966C5915A861F599 /* Clash */,
+				0AB18F51E9E0BC88C1A69F81 /* ClashCoreKit */,
+				7060FA3973C20ECBE502CBCF /* ClashTunnel */,
+				4E9FAF85FBA4D5B731CA0D4A /* Frameworks */,
+				6A86154B571E7F62B3FE24FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DA440B16F43FDB5A4206A31 /* ClashTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33CB1084AB9006E24273C5C0 /* Build configuration list for PBXNativeTarget "ClashTunnel" */;
+			buildPhases = (
+				665CD94C149B48227FF47FAF /* Sources */,
+				66C14AB99E74F2C6312BAE06 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FD75C2E75B3CC4338FEEDF6 /* PBXTargetDependency */,
+			);
+			name = ClashTunnel;
+			packageProductDependencies = (
+			);
+			productName = ClashTunnel;
+			productReference = 2A69716E1BE9D83E495E41E5 /* ClashTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8D33C93AE86930BC8F687E4B /* ClashCoreKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7957B676C2AEC46A1871D2E /* Build configuration list for PBXNativeTarget "ClashCoreKit" */;
+			buildPhases = (
+				16C21B9BA226B58C0AF6D95F /* CopyFiles */,
+				E321ED5293D5E8AC058B3EFF /* Sources */,
+				1A91C530DECD560BD4DDDCA3 /* Copy Swift Objective-C Interface Header */,
+				9E55FEEFB5F9DA184098F884 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClashCoreKit;
+			packageProductDependencies = (
+			);
+			productName = ClashCoreKit;
+			productReference = A8BC02BC1B481AF854AAF5A0 /* libClashCoreKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F58EFEC0EF1CF9174DCBD318 /* Clash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2398F148EEB87BF9A7AECD07 /* Build configuration list for PBXNativeTarget "Clash" */;
+			buildPhases = (
+				33E12BCF5CF3F597D27BA1A4 /* Sources */,
+				7C737DC79F6F15D160331FB0 /* Frameworks */,
+				1BB8A57D3666CDF35A71F7FB /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ABBEEAA94EE841888BB67E2 /* PBXTargetDependency */,
+				3CD30C24D4C77B75DD68299B /* PBXTargetDependency */,
+			);
+			name = Clash;
+			packageProductDependencies = (
+			);
+			productName = Clash;
+			productReference = A7ACC6B17248FF738A52F5A5 /* Clash.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DC58A8FDC8522965EF59F1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4DA440B16F43FDB5A4206A31 = {
+						ProvisioningStyle = Automatic;
+					};
+					8D33C93AE86930BC8F687E4B = {
+						ProvisioningStyle = Automatic;
+					};
+					F58EFEC0EF1CF9174DCBD318 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6FC331B997267974FB34E02D /* Build configuration list for PBXProject "Clash" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D5F25C9591260CA824C93583;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6A86154B571E7F62B3FE24FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D33C93AE86930BC8F687E4B /* ClashCoreKit */,
+				F58EFEC0EF1CF9174DCBD318 /* Clash */,
+				4DA440B16F43FDB5A4206A31 /* ClashTunnel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A91C530DECD560BD4DDDCA3 /* Copy Swift Objective-C Interface Header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(DERIVED_SOURCES_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			name = "Copy Swift Objective-C Interface Header";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/include/$(PRODUCT_MODULE_NAME)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33E12BCF5CF3F597D27BA1A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62C04087353F0C0998502A80 /* AppModel.swift in Sources */,
+				A4ED894A6009E19A0A408628 /* ClashApp.swift in Sources */,
+				78CF925535251182B5F8B7A1 /* DashboardView.swift in Sources */,
+				64032B36A58ED19D585C3532 /* LogsView.swift in Sources */,
+				16A0372542BD5653C95E9B69 /* Profile.swift in Sources */,
+				7C81B21D56433AD3DF45F87A /* ProfileStore.swift in Sources */,
+				B8B21FCE6CD50C9A6A373880 /* ProfilesView.swift in Sources */,
+				B8719B169EA3D32D6A4BAD14 /* ProxiesView.swift in Sources */,
+				735B95CA896FA8FA8D34F0C2 /* RootView.swift in Sources */,
+				A4C31C3C08B313373A52DA45 /* SettingsView.swift in Sources */,
+				438C9E0CA212F5F355AAD281 /* TunnelManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		665CD94C149B48227FF47FAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C077C3092D6BF5A76292BE /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E321ED5293D5E8AC058B3EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A3513AEE6CF0144C25FDB5 /* Callbacks.swift in Sources */,
+				6A5956D25EBD6EF2F90397F4 /* ClashCore.swift in Sources */,
+				DBDB2F755C6F47DBE9B4295F /* FFI.swift in Sources */,
+				33B8F1F47C2B614E1B220B66 /* Models.swift in Sources */,
+				4A208447F091751A38DBF595 /* Shared.swift in Sources */,
+				859A4BFBFEBD6D32DE43EA2E /* SocketProtector.swift in Sources */,
+				E088FA78E21DBBAFAEEEF3CA /* TunBridge.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0ABBEEAA94EE841888BB67E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D33C93AE86930BC8F687E4B /* ClashCoreKit */;
+			targetProxy = CB29B0441BFE289D8F420607 /* PBXContainerItemProxy */;
+		};
+		3CD30C24D4C77B75DD68299B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DA440B16F43FDB5A4206A31 /* ClashTunnel */;
+			targetProxy = 1BCA30CED46A6FD4D40526A6 /* PBXContainerItemProxy */;
+		};
+		7FD75C2E75B3CC4338FEEDF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D33C93AE86930BC8F687E4B /* ClashCoreKit */;
+			targetProxy = DE6ACE2D232F2DB3768735D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		234630658F9B4BD81642705B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ClashTunnel/ClashTunnel.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				INFOPLIST_FILE = ClashTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.clash.tunnel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41765C104B6A30C2DC8027A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				INFOPLIST_FILE = Clash/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.clash;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5ADF0F4B2907CB1FAD59F7BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lsqlite3 -lresolv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		759AEC7A9EE16737C9E97318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/ClashCoreKit/ffi",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.ClashCoreKit;
+				PRODUCT_NAME = ClashCoreKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ClashCoreKit/ClashCoreKit-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		87B87A188A39B4CDC51A77AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lsqlite3 -lresolv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C7E00172FDA53C28D1280907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/ClashCoreKit/ffi",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.ClashCoreKit;
+				PRODUCT_NAME = ClashCoreKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ClashCoreKit/ClashCoreKit-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C988507B60E107E76CB3EA17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				INFOPLIST_FILE = Clash/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.clash;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F46D2AD8450F41FBB3A7682A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ClashTunnel/ClashTunnel.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"build\"",
+				);
+				INFOPLIST_FILE = ClashTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianandroid.clash.tunnel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2398F148EEB87BF9A7AECD07 /* Build configuration list for PBXNativeTarget "Clash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C988507B60E107E76CB3EA17 /* Debug */,
+				41765C104B6A30C2DC8027A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		33CB1084AB9006E24273C5C0 /* Build configuration list for PBXNativeTarget "ClashTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F46D2AD8450F41FBB3A7682A /* Debug */,
+				234630658F9B4BD81642705B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6FC331B997267974FB34E02D /* Build configuration list for PBXProject "Clash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ADF0F4B2907CB1FAD59F7BB /* Debug */,
+				87B87A188A39B4CDC51A77AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E7957B676C2AEC46A1871D2E /* Build configuration list for PBXNativeTarget "ClashCoreKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E00172FDA53C28D1280907 /* Debug */,
+				759AEC7A9EE16737C9E97318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DC58A8FDC8522965EF59F1C /* Project object */;
+}

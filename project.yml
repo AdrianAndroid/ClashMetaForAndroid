@@ -1,0 +1,85 @@
+name: Clash
+options:
+  bundleIdPrefix: com.adrianandroid
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    OTHER_LDFLAGS: "-lsqlite3 -lresolv"
+    GCC_PREPROCESSOR_DEFINITIONS: "$(inherited)"
+
+targets:
+  ClashCoreKit:
+    type: library.static
+    platform: iOS
+    sources:
+      - ClashCoreKit
+    settings:
+      base:
+        PRODUCT_NAME: ClashCoreKit
+        DEFINES_MODULE: YES
+        SWIFT_OBJC_BRIDGING_HEADER: ClashCoreKit/ClashCoreKit-Bridging-Header.h
+        HEADER_SEARCH_PATHS:
+          - $(inherited)
+          - $(SRCROOT)/ClashCoreKit/ffi
+    dependencies:
+      - framework: build/ClashCore.xcframework
+        embed: false
+        link: true
+
+  Clash:
+    type: application
+    platform: iOS
+    sources:
+      - Clash
+    info:
+      path: Clash/Info.plist
+      properties:
+        CFBundleDisplayName: Clash
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    entitlements:
+      path: Clash/Clash.entitlements
+    dependencies:
+      - target: ClashCoreKit
+      - target: ClashTunnel
+        embed: true
+      - framework: build/ClashCore.xcframework
+        embed: false
+        link: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adrianandroid.clash
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+
+  ClashTunnel:
+    type: app-extension
+    platform: iOS
+    sources:
+      - ClashTunnel
+    info:
+      path: ClashTunnel/Info.plist
+      properties:
+        CFBundleDisplayName: Clash Tunnel
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
+    entitlements:
+      path: ClashTunnel/ClashTunnel.entitlements
+    dependencies:
+      - target: ClashCoreKit
+      - framework: build/ClashCore.xcframework
+        embed: false
+        link: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adrianandroid.clash.tunnel
+        SKIP_INSTALL: YES

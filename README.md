@@ -1,87 +1,83 @@
-## Clash Meta for Android
+## Clash for iOS
 
-A Graphical user interface of [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) for Android
+An iOS client for the [mihomo](https://github.com/MetaCubeX/mihomo) (Clash.Meta) kernel.
 
-### Feature
+This repository started as a fork of [ClashMetaForAndroid](https://github.com/MetaCubeX/ClashMetaForAndroid).
+The Android application has been removed; what remains is the Go core adapted for Apple platforms
+plus a brand new SwiftUI app and Network Extension. **Every piece of business logic (profile
+loading and validation, TUN startup, selector patching, traffic statistics, overrides, log
+streaming) is ported one-to-one from the Android implementation.**
 
-Feature of [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
+### Architecture
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.github.metacubex.clash.meta/)
+```
+┌─────────────────────── App process ───────────────────────┐
+│ Clash (SwiftUI)  ──  NETunnelProviderManager  ──  profile │
+│      │  sendProviderMessage(JSON)                         │
+└──────┼────────────────────────────────────────────────────┘
+       │
+┌──────▼───────────── Extension process ────────────────────┐
+│ PacketTunnelProvider                                      │
+│   ├── ClashCore (Swift actor, mirrors core/Clash.kt)      │
+│   ├── TunBridge  packetFlow ⇄ SOCK_DGRAM socketpair       │
+│   └── mihomo (Go, c-archive → ClashCore.xcframework)      │
+└───────────────────────────────────────────────────────────┘
+```
 
-### Requirement
+| Android | iOS |
+| --- | --- |
+| `core/src/main/golang` (cgo + JNI) | `core/` (cgo, plain C callback table) |
+| `libbridge.so` + `Bridge.kt` | `ClashCore.xcframework` + `ClashCoreKit` (Swift) |
+| `VpnService.establish().detachFd()` | `NEPacketTunnelProvider` + socketpair-backed fake utun |
+| `VpnService.protect()` | `setsockopt(IP_BOUND_IF / IPV6_BOUND_IF)` |
+| AIDL `IClashManager` | `NETunnelProviderSession.sendProviderMessage` |
+| Room database | App Group JSON (`clash/profiles.json`) |
+| `design/` + `app/` | SwiftUI views in `Clash/` |
 
-- Android 5.0+ (minimum)
-- Android 7.0+ (recommend)
-- `armeabi-v7a` , `arm64-v8a`, `x86` or `x86_64` Architecture
+### TUN data path
+
+`NEPacketTunnelProvider` does not expose a tun file descriptor, so the app fakes one:
+
+```
+kernel peer ⇄ utun ⇄ NEPacketTunnelFlow ⇄ TunBridge ⇄ socketpair(SOCK_DGRAM) ⇄ sing-tun
+```
+
+`sing-tun`'s darwin backend accepts an external `FileDescriptor` and speaks the utun wire
+format (4 byte address-family header + IP packet). `TunBridge` adds/strips that header on
+the Swift side, so the Go core needs no changes at all.
+
+### Requirements
+
+- macOS with Xcode 15+
+- Go 1.21+ (`brew install go`)
+- [xcodegen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`)
+- An Apple developer account (Network Extension entitlement, App Group)
 
 ### Build
 
-1. Update submodules
+```bash
+git submodule update --init --recursive
+bash scripts/build-core.sh     # builds ClashCore.xcframework
+xcodegen generate              # creates Clash.xcodeproj
+open Clash.xcodeproj
+```
 
-   ```bash
-   git submodule update --init --recursive
-   ```
+Then:
 
-2. Install **OpenJDK 11**, **Android SDK**, **CMake** and **Golang**
+1. Set your development team for both `Clash` and `ClashTunnel`.
+2. Change the bundle identifiers and update the App Group id
+   (`ClashCoreKit/Shared.swift`, both `*.entitlements` files, and `project.yml`).
+3. Run on a real device. Network Extensions do not work in the simulator.
 
-3. Create `local.properties` in project root with
+### Notes
 
-   ```properties
-   sdk.dir=/path/to/android-sdk
-   ```
+- The core only runs inside the tunnel extension, exactly like the Android service.
+- The app never talks to the core directly: it sends JSON messages to the extension, which
+  performs the same calls the AIDL interface used to expose.
+- Per-app routing (`addAllowedApplication`) has no iOS equivalent; only rule based routing
+  is available.
+- `mark_socket` is mapped to interface binding, the darwin equivalent of `SO_MARK`.
 
-4. (Optional) Custom app package name. Add the following configuration to `local.properties`.
+### License
 
-   ```properties
-   # config your ownn applicationId, or it will be 'com.github.metacubex.clash'
-   custom.application.id=com.my.compile.clash
-   # remove application id suffix, or the applicaion id will be 'com.github.metacubex.clash.alpha'
-   remove.suffix=true
-
-5. Create `signing.properties` in project root with
-
-   ```properties
-   keystore.path=/path/to/keystore/file
-   keystore.password=<key store password>
-   key.alias=<key alias>
-   key.password=<key password>
-   ```
-
-6. Build
-
-   ```bash
-   ./gradlew app:assembleAlphaRelease
-   ```
-
-### Automation
-
-APP package name is `com.github.metacubex.clash.meta`
-
-- Toggle Clash.Meta service status
-  - Send intent to activity `com.github.kr328.clash.ExternalControlActivity` with action `com.github.metacubex.clash.meta.action.TOGGLE_CLASH`
-- Start Clash.Meta service
-  - Send intent to activity `com.github.kr328.clash.ExternalControlActivity` with action `com.github.metacubex.clash.meta.action.START_CLASH`
-- Stop Clash.Meta service
-  - Send intent to activity `com.github.kr328.clash.ExternalControlActivity` with action `com.github.metacubex.clash.meta.action.STOP_CLASH`
-- Import a profile
-  - URL Scheme `clash://install-config?url=<encoded URI>` or `clashmeta://install-config?url=<encoded URI>`
-
-### Contribution and Project Maintenance
-
-#### Meta Kernel
-
-- CMFA uses the kernel from `android-real` branch under `MetaCubeX/Clash.Meta`, which is a merge of the main `Alpha` branch and `android-open`.
-  - If you want to contribute to the kernel, make PRs to `Alpha` branch of the Meta kernel repository.
-  - If you want to contribute Android-specific patches to the kernel, make PRs to  `android-open` branch of the Meta kernel repository.
-
-#### Maintenance
-
-- When `MetaCubeX/Clash.Meta` kernel is updated to a new version, the `Update Dependencies` actions in this repo will be triggered automatically.
-  - It will pull the new version of the meta kernel, update all the golang dependencies, and create a PR without manual intervention.
-  - If there is any compile error in PR, you need to fix it before merging. Alternatively, you may merge the PR directly.
-- Manually triggering `Build Pre-Release` actions will compile and publish a `PreRelease` version.
-- Manually triggering `Build Release` actions will compile, tag and publish a `Release` version.
-  - You must fill the blank `Release Tag` with the tag you want to release in the format of `v1.2.3`.
-  - `versionName` and `versionCode` in `build.gradle.kts` will be automatically bumped to the tag you filled above.
+GPL-3.0, inherited from ClashMetaForAndroid and mihomo.

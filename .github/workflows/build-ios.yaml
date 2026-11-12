@@ -1,0 +1,40 @@
+name: Build iOS
+
+on:
+  push:
+    branches: [learn]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Install xcodegen
+        run: brew install xcodegen
+
+      - name: Build core
+        run: bash scripts/build-core.sh
+
+      - name: Generate project
+        run: xcodegen generate
+
+      - name: Build app (simulator, unsigned)
+        run: |
+          xcodebuild \
+            -project Clash.xcodeproj \
+            -scheme Clash \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
