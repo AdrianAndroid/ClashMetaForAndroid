@@ -24,6 +24,14 @@ struct DashboardView: View {
                     LabeledContent("Profile", value: model.activeProfile?.name ?? "None")
                 }
 
+                if model.isSimulator {
+                    Section {
+                        Label("Simulator build: the Network Extension cannot run here.", systemImage: "info.circle")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
                 Section("Traffic") {
                     LabeledContent("Upload", value: Self.format(model.status.upload) + "/s")
                     LabeledContent("Download", value: Self.format(model.status.download) + "/s")

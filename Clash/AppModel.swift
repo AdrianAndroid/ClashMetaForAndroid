@@ -33,7 +33,7 @@ final class AppModel: ObservableObject {
     init() {
         ClashShared.ensureDirectories()
         profiles = store.load()
-        activeProfileID = ClashShared.defaults.string(forKey: "active.profile")
+        activeProfileID = ClashShared.defaults.string(forKey: "active.profile") ?? profiles.first?.id
         running = tunnel.isRunning
 
         Task {
@@ -41,12 +41,19 @@ final class AppModel: ObservableObject {
         }
     }
 
+    /// True when running inside the simulator, where NetworkExtension is not available.
+    var isSimulator: Bool {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
+    }
+
     func bootstrap() async {
-        do {
-            try await tunnel.prepare()
-        } catch {
-            errorMessage = error.localizedDescription
-        }
+        // NetworkExtension is unavailable in the simulator, so a failure here is
+        // expected and must not be presented to the user.
+        try? await tunnel.prepare()
 
         running = tunnel.isRunning
 
@@ -142,6 +149,11 @@ final class AppModel: ObservableObject {
     }
 
     func startTunnel() async {
+        if isSimulator {
+            errorMessage = "The Network Extension cannot run in the simulator. Use a real device."
+            return
+        }
+
         guard let profile = activeProfile else {
             errorMessage = "Select a profile first"
             return

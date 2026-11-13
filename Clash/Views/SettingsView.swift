@@ -28,8 +28,12 @@ struct SettingsView: View {
                 }
 
                 Section("Storage") {
-                    LabeledContent("Profiles", value: ClashShared.profilesDirectory.path)
-                    LabeledContent("Logs", value: ClashShared.logsDirectory.path)
+                    LabeledContent("Profiles", value: "clash/profiles")
+                    LabeledContent("Logs", value: "clash/logs")
+
+                    Text("Stored in the shared App Group container so the extension can read it.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
 
                 Section("About") {
